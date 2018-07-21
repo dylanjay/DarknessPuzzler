@@ -249,8 +249,9 @@ GameObject:
   - component: {fileID: 252316601}
   - component: {fileID: 252316605}
   - component: {fileID: 252316604}
-  - component: {fileID: 252316603}
   - component: {fileID: 252316602}
+  - component: {fileID: 252316606}
+  - component: {fileID: 252316603}
   m_Layer: 0
   m_Name: ConveyorBelts
   m_TagString: Untagged
@@ -284,19 +285,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goingRight: 1
   speed: 5
---- !u!19719996 &252316603
-TilemapCollider2D:
+--- !u!61 &252316603
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 252316600}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
+  m_Material: {fileID: 6200000, guid: b23c3503d5c54a14ea0d06e3d669bf5a, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -3.7428012, y: -0.9412277}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.5143976, y: 0.1131978}
+  m_EdgeRadius: 0
 --- !u!483693784 &252316604
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -470,6 +483,25 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!249 &252316606
+AreaEffector2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 252316600}
+  m_Enabled: 1
+  m_UseColliderMask: 0
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 1280
+  m_UseGlobalAngle: 0
+  m_ForceAngle: 0
+  m_ForceMagnitude: 10
+  m_ForceVariation: 0
+  m_ForceTarget: 0
+  m_Drag: 0
+  m_AngularDrag: 0
 --- !u!1 &423680053
 GameObject:
   m_ObjectHideFlags: 0
