@@ -22,7 +22,6 @@ public class ProjectileScript : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.layer != LayerMask.NameToLayer("Player")){
-            Debug.Log(col.gameObject.name);
             Destroy(gameObject);
         }
     }

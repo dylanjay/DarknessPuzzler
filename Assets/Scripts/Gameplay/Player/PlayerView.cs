@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerSprite : MonoBehaviour 
+public class PlayerView : MonoBehaviour 
 {
     SpriteRenderer sprite;
     GravityFlip gravityFlip;
