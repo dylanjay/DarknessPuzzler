@@ -18,8 +18,8 @@ public class DeadbodyManager : MonoBehaviour
         {
             Destroy(deadbody.gameObject);
         }
-        //TODO : Quaternion
-        deadbody = Instantiate(deadbodyPrefab, reference.position, Quaternion.identity).transform;
+
+        deadbody = Instantiate(deadbodyPrefab, reference.position, reference.rotation).transform;
     }
 
     public void DestroyBody()

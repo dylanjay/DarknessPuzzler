@@ -23,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-
         if (Input.GetButtonDown("Jump") && controller.m_Grounded)
         {
             gravityFlip.Flip();

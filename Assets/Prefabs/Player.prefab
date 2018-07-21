@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4387581157145080}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CeilingCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4249638301993842}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 4488261317418692}
   - component: {fileID: 61454000161277118}
   - component: {fileID: 114853199236446108}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PickupCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4115958036430842}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BodyHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4995900890713776}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,6 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ae1a0076e3c894c992a86f01bf938e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shakeAmt: 0
 --- !u!114 &114839016837967840
 MonoBehaviour:
   m_ObjectHideFlags: 1

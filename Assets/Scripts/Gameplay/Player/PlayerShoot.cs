@@ -6,10 +6,12 @@ public class PlayerShoot : MonoBehaviour
 
     BodyHandler bodyHandler;
     GravityFlip gravityFlip;
+    CharacterController2D controller;
 
     void Awake()
     {
         bodyHandler = GetComponent<BodyHandler>();
+        controller = GetComponent<CharacterController2D>();
 
         Debug.Log("CONTROLS");
         Debug.Log("Left Click: Pick up body");
@@ -22,10 +24,12 @@ public class PlayerShoot : MonoBehaviour
     }
 
     void Update () {
-		if (bodyHandler.equipped && Input.GetButtonDown("Fire2")) {
+		if (bodyHandler.equipped && Input.GetButtonDown("Fire2"))
+        {
             Transform body = bodyHandler.body;
             bodyHandler.UnEquip();
             Vector2 dir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            if (dir == Vector2.zero) dir.x = controller.m_FacingRight ? 1 : -1;
             if (dir.x < 0) dir.x = -1;
             if (dir.x > 0) dir.x = 1;
             if (dir.y > 0) dir.y = gravityFlip.flipped ? 0 : 1;

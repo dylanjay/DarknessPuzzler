@@ -4,10 +4,10 @@ public class EndDoor : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D collision)
     {
-         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("PRETEND THAT LOADED THE NEXT LEVEL");
-            Debug.Log(collision.name);
+
             collision.gameObject.GetComponent<PlayerRespawner>().Respawn();
             // TODO
             //LevelLoader.instance.LoadNextLevel();

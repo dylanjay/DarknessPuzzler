@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class PlayerKiller : MonoBehaviour 
 {
@@ -25,6 +26,13 @@ public class PlayerKiller : MonoBehaviour
         originalCameraPosition = mainCamera.transform.position;
         InvokeRepeating("CameraShake", 0, .01f);
         Invoke("StopShaking", 0.3f);
+        StartCoroutine(RespawnRoutine());
+    }
+
+    IEnumerator RespawnRoutine()
+    {
+        yield return new WaitForEndOfFrame();
+
         respawner.Respawn();
     }
 
