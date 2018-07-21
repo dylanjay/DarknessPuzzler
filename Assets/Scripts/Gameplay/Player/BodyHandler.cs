@@ -8,10 +8,32 @@ public class BodyHandler : MonoBehaviour
     public Transform body;
 
     Transform bodyHolder;
+    CharacterController2D controller;
+    bool facingRight = true;
 
     void Awake()
     {
         bodyHolder = transform.Find("BodyHolder");
+        controller = GetComponent<CharacterController2D>();
+    }
+
+    void Start()
+    {
+        GravityFlip.instance.onFlip.AddListener(Flip);
+    }
+
+    void Update()
+    {
+        if (controller.m_FacingRight != facingRight)
+        {
+            facingRight = controller.m_FacingRight;
+            Flip();
+        }
+    }
+
+    void Flip()
+    {
+        bodyHolder.localPosition = new Vector3(-bodyHolder.localPosition.x, bodyHolder.localPosition.y, bodyHolder.localPosition.z);
     }
 
     public void Equip(Transform body)
