@@ -27,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
         {
             gravityFlip.Flip();
         }
-
         //if (Input.GetButtonDown("Jump"))
         //{
         //    jump = true;
