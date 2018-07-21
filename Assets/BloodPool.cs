@@ -37,9 +37,8 @@ public class BloodPool : MonoBehaviour
     {
         float diff = (amount - amountUsed) * growthFactor;
         Vector3 leftGrowth = Grow(0, -bias * diff);
-        amountUsed += leftGrowth.magnitude;
         Vector3 rightGrowth = Grow(1, (1.0f - bias) * diff);
-        amountUsed += rightGrowth.magnitude;
+        amountUsed += diff;
 
 
         lineRenderer.SetPosition(0, lineRenderer.GetPosition(0) + leftGrowth);
