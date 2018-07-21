@@ -7,7 +7,8 @@ public class PlayerMovement : MonoBehaviour
     CharacterController2D controller;
     GravityFlip gravityFlip;
 
-    float horizontalMove = 0f;
+    public float horizontalVelocity = 0f;
+    public bool disableHorizontalInput = false;
     bool jump = false;
 
     void Awake()
@@ -22,20 +23,21 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        if (Input.GetButtonDown("Jump") && controller.m_Grounded)
+        horizontalVelocity = disableHorizontalInput ? 0f : Input.GetAxisRaw("Horizontal") * runSpeed;
+        if (Input.GetButtonDown("Fire3") && controller.m_Grounded)
         {
             gravityFlip.Flip();
         }
-        //if (Input.GetButtonDown("Jump"))
-        //{
-        //    jump = true;
-        //}
+
+        if (Input.GetButtonDown("Jump") && controller.m_Grounded)
+        {
+            jump = true;
+        }
     }
 
     void FixedUpdate()
     {
-        controller.Move(horizontalMove * Time.fixedDeltaTime, false, jump);
+        controller.Move(horizontalVelocity * Time.fixedDeltaTime, false, jump);
         jump = false;
     }
 }

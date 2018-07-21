@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerPickup : MonoBehaviour 
 {
@@ -17,7 +15,7 @@ public class PlayerPickup : MonoBehaviour
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer("DeadBody"))
             {
-                bodyHandler.Equip(collision.transform);
+                bodyHandler.Equip(collision.transform, bodyHandler.holdingPivot, EquippedType.Hold);
             }
         }
     }

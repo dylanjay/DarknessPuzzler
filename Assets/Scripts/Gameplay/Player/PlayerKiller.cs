@@ -20,6 +20,7 @@ public class PlayerKiller : MonoBehaviour
     {
         deadbodyManager.CreateBody(transform);
         Camera.main.GetComponent<CameraShake>().shakeCamera(1);
+        StartCoroutine(RespawnRoutine());
     }
 
     IEnumerator RespawnRoutine()

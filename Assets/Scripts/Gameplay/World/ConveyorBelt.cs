@@ -19,7 +19,8 @@ public class ConveyorBelt : MonoBehaviour
         {
             // TODO Set constant speed by adding velocity here and to player
             // TODO fix pickup collider activating conveyor belt
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(speed * (goingRight ? Vector3.right : Vector3.left));
+            collision.gameObject.GetComponent<PlayerMovement>().horizontalVelocity += speed * (goingRight ? 1 : -1);
+            //collision.gameObject.GetComponent<Rigidbody2D>().AddForce(speed * (goingRight ? Vector3.right : Vector3.left));
         }
     }
 }
