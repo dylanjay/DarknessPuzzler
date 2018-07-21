@@ -19,6 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4507307049747148}
+  - component: {fileID: 114896701528821068}
+  - component: {fileID: 114062551897116498}
   m_Layer: 0
   m_Name: Management
   m_TagString: Untagged
@@ -39,3 +41,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114062551897116498
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1075345092955560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f0bb436e4ac8374fa9b4cd39cc4585e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deadbodyPrefab: {fileID: 1962205916800342, guid: 2dbaecb20f2bf5b4ea13ee78297bba86,
+    type: 2}
+--- !u!114 &114896701528821068
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1075345092955560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e15ba76d7ef7340a64e1400fd407b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onFlip:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

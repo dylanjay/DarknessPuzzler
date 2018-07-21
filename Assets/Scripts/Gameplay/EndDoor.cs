@@ -7,6 +7,7 @@ public class EndDoor : MonoBehaviour
          if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             Debug.Log("PRETEND THAT LOADED THE NEXT LEVEL");
+            Debug.Log(collision.name);
             collision.gameObject.GetComponent<PlayerRespawner>().Respawn();
             // TODO
             //LevelLoader.instance.LoadNextLevel();

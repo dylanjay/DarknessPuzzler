@@ -275,6 +275,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1962205916800342, guid: 2dbaecb20f2bf5b4ea13ee78297bba86, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2dbaecb20f2bf5b4ea13ee78297bba86, type: 2}
   m_IsPrefabParent: 0
@@ -3496,7 +3500,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e30e498388e0e5243821d5bfeb0b8040, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &697264277
+--- !u!1001 &780793215
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -3534,11 +3538,6 @@ Prefab:
     - target: {fileID: 4123199633464130, guid: 0953b4fd099484d45a194279db5808d1, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114569133225377088, guid: 0953b4fd099484d45a194279db5808d1,
-        type: 2}
-      propertyPath: force
-      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0953b4fd099484d45a194279db5808d1, type: 2}
@@ -3830,24 +3829,3 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1632f7086c32d44bb9a9a872cd5137a, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2113404449 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1075345092955560, guid: c1632f7086c32d44bb9a9a872cd5137a,
-    type: 2}
-  m_PrefabInternal: {fileID: 2113404448}
---- !u!114 &2113404450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2113404449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72e15ba76d7ef7340a64e1400fd407b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onFlip:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null

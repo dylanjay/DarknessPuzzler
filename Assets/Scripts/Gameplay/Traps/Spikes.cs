@@ -6,7 +6,7 @@ public class Spikes : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            collision.GetComponent<PlayerRespawner>().Respawn();
+            collision.GetComponent<PlayerKiller>().Kill();
         }
     }
 }
