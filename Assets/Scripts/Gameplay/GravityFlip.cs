@@ -15,14 +15,6 @@ public class GravityFlip : MonoBehaviour
         instance = this;
     }
 
-    void Update()
-    {
-        if (Input.GetButtonDown("Jump"))
-        {
-            Flip();
-        }
-    }
-
     public void Flip()
     {
         Physics2D.gravity = new Vector2(0, -Physics2D.gravity.y);

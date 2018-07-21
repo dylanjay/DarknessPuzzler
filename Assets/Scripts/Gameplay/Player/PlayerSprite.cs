@@ -18,6 +18,6 @@ public class PlayerSprite : MonoBehaviour
 
     void OnFlip()
     {
-        sprite.flipY = gravityFlip.flipped;
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, -transform.up);
     }
 }
