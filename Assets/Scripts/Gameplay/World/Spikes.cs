@@ -11,11 +11,17 @@ public class Spikes : MonoBehaviour
         {
             collision.GetComponentInParent<PlayerKiller>().Kill();
         }
+
         // All objects that can currently hit spikes can bleed.
         if (!spikesRevealed)
         {
             spikesRevealed = true;
             StartCoroutine(UpdateSpikeReveal());
+        }
+
+        if (collision.gameObject.tag == "DeadBody")
+        {
+            collision.GetComponent<Rigidbody2D>().gravityScale = 0;
         }
     }
 
