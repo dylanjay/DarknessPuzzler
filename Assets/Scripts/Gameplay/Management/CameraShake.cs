@@ -51,12 +51,12 @@ public class CameraShake : MonoBehaviour {
             offset = getShakeTranslation();
             trauma -= 0.01f;
         }
-        //else if (trauma > 0 && !shaking)
-        //{
-        //    _basePos = transform.localPosition;
-        //    _baseRot = transform.localEulerAngles;
-        //    shaking = true;
-        //}
+        else if (trauma > 0 && !shaking)
+        {
+            //_basePos = transform.localPosition;
+            //_baseRot = transform.localEulerAngles;
+            shaking = true;
+        }
         else
         {
             shaking = false;
@@ -77,6 +77,7 @@ public class CameraShake : MonoBehaviour {
 
         Vector3 update = new Vector3(newX, newY, _basePos.z);
         _basePos = update;
+        Debug.Log(offset);
         transform.position = update + offset;
     }
 
@@ -143,7 +144,7 @@ public class CameraShake : MonoBehaviour {
         Vector3 newEulerAngle = new Vector3(_baseRot.x, _baseRot.y, _baseRot.z + angle);
         Vector3 newPosition =  new Vector3(_basePos.x + offsetX, _basePos.y + offsetY, _basePos.z);
         transform.localEulerAngles = newEulerAngle;
-        return newPosition;
+        return new Vector3(offsetX, offsetY, 0);
     }
 
     public void shakeCamera(float t)
