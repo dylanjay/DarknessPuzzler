@@ -11,6 +11,23 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1962205916800342}
   m_IsPrefabParent: 1
+--- !u!1 &1391053564830564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4344604871914130}
+  - component: {fileID: 58112545181343582}
+  - component: {fileID: 61001130016453244}
+  m_Layer: 8
+  m_Name: Colliders
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1599470273218936
 GameObject:
   m_ObjectHideFlags: 0
@@ -51,6 +68,7 @@ GameObject:
   - component: {fileID: 4488261317418692}
   - component: {fileID: 61454000161277118}
   - component: {fileID: 114853199236446108}
+  - component: {fileID: 50493664077012122}
   m_Layer: 8
   m_Name: PickupCollider
   m_TagString: Untagged
@@ -103,8 +121,6 @@ GameObject:
   - component: {fileID: 114569133225377088}
   - component: {fileID: 114151674366171376}
   - component: {fileID: 114823274533511718}
-  - component: {fileID: 58064025655515268}
-  - component: {fileID: 61440451055256968}
   - component: {fileID: 50148159455044066}
   - component: {fileID: 212233096453786124}
   - component: {fileID: 114410122614609810}
@@ -141,7 +157,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4123199633464130}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4123199633464130
 Transform:
@@ -156,6 +172,7 @@ Transform:
   - {fileID: 4249638301993842}
   - {fileID: 4387581157145080}
   - {fileID: 4995900890713776}
+  - {fileID: 4344604871914130}
   - {fileID: 4115958036430842}
   - {fileID: 4488261317418692}
   - {fileID: 4650875942679656}
@@ -174,6 +191,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4123199633464130}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4344604871914130
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1391053564830564}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4123199633464130}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4387581157145080
 Transform:
@@ -199,7 +229,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4123199633464130}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4650875942679656
 Transform:
@@ -212,7 +242,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4123199633464130}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4995900890713776
 Transform:
@@ -247,12 +277,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &58064025655515268
+--- !u!50 &50493664077012122
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1859739805530996}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &58112545181343582
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1962205916800342}
+  m_GameObject: {fileID: 1391053564830564}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: b23c3503d5c54a14ea0d06e3d669bf5a, type: 2}
@@ -262,12 +312,12 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.11999999}
   serializedVersion: 2
   m_Radius: 0.14893787
---- !u!61 &61440451055256968
+--- !u!61 &61001130016453244
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1962205916800342}
+  m_GameObject: {fileID: 1391053564830564}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: b23c3503d5c54a14ea0d06e3d669bf5a, type: 2}
@@ -350,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64d9f92d2f9d7de4aa697845285b595e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 45
 --- !u!114 &114569133225377088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -391,10 +441,11 @@ MonoBehaviour:
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 4294967039
+    m_Bits: 4294967037
   m_GroundCheck: {fileID: 4995900890713776}
   m_CeilingCheck: {fileID: 4387581157145080}
   m_CrouchDisableCollider: {fileID: 0}
+  groundedOn: {fileID: 0}
   m_Grounded: 0
   m_FacingRight: 1
   landedOn: {fileID: 0}

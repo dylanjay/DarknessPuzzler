@@ -7,6 +7,7 @@ public class PlayerShoot : MonoBehaviour
     BodyHandler bodyHandler;
     GravityFlip gravityFlip;
     CharacterController2D controller;
+    Transform body;
 
     void Awake()
     {
@@ -26,17 +27,22 @@ public class PlayerShoot : MonoBehaviour
     }
 
     void FixedUpdate () {
-		if (bodyHandler.equipped == EquippedType.Hold && Input.GetButtonDown("Throw"))
+		if ((bodyHandler.equipped == EquippedType.Hold || bodyHandler.equipped == EquippedType.Skate) && Input.GetButtonDown("Throw"))
         {
-            Transform body = bodyHandler.body;
-            bodyHandler.UnEquip();
+            body = bodyHandler.body;
+            if (bodyHandler.equipped != EquippedType.Skate || controller.m_Grounded)
+            {
+                bodyHandler.UnEquip();
+            }
             Vector2 dir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             if (dir == Vector2.zero) dir.x = controller.m_FacingRight ? 1 : -1;
             if (dir.x < 0) dir.x = -1;
             if (dir.x > 0) dir.x = 1;
             if (dir.y > 0) dir.y = gravityFlip.flipped ? 0 : 1;
             if (dir.y < 0) dir.y = gravityFlip.flipped ? -1 : 0;
+            body.GetComponent<DeadBodyCollision>().IgnoreCollision(transform.Find("Colliders"));
+            // TODO inherit speed from player
             body.GetComponent<Rigidbody2D>().AddForce(dir.normalized*force, ForceMode2D.Impulse);
         }
-	}
+	}    
 }

@@ -6,7 +6,7 @@ public class DeathButton : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && Input.GetButtonDown("Interact"))
         {
-            collision.GetComponent<PlayerKiller>().Kill();
+            collision.GetComponentInParent<PlayerKiller>().Kill();
         }
     }
 }

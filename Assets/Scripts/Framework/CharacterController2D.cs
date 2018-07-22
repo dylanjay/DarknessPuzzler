@@ -55,8 +55,9 @@ public class CharacterController2D : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
         for (int i = 0; i < colliders.Length; i++)
         {
-            //if (colliders[i].gameObject.layer == LayerMask.NameToLayer("DeadBody"))
-            //    continue;
+            if (colliders[i].gameObject.layer == LayerMask.NameToLayer("DeadBody") &&
+                !colliders[i].gameObject.GetComponent<DeadBodyCollision>().active)
+                continue;
 
             if (colliders[i].gameObject != gameObject)
             {

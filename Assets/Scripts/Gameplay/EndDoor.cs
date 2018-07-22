@@ -8,7 +8,7 @@ public class EndDoor : MonoBehaviour
         {
             Debug.Log("PRETEND THAT LOADED THE NEXT LEVEL");
 
-            collision.gameObject.GetComponent<PlayerRespawner>().Respawn();
+            collision.gameObject.GetComponentInParent<PlayerRespawner>().Respawn();
             // TODO
             //LevelLoader.instance.LoadNextLevel();
         }

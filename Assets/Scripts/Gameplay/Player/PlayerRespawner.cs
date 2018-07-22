@@ -9,7 +9,6 @@ public class PlayerRespawner : MonoBehaviour
         spawnPoint.SetParent(transform.parent);
     }
 
-
     public void Respawn()
     {
         transform.position = spawnPoint.position;

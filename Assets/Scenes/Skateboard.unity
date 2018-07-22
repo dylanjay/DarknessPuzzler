@@ -281,16 +281,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114764442605315740, guid: 0953b4fd099484d45a194279db5808d1,
-        type: 2}
-      propertyPath: m_JumpForce
-      value: 700
-      objectReference: {fileID: 0}
-    - target: {fileID: 50148159455044066, guid: 0953b4fd099484d45a194279db5808d1,
-        type: 2}
-      propertyPath: m_GravityScale
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0953b4fd099484d45a194279db5808d1, type: 2}
   m_IsPrefabParent: 0
@@ -3680,6 +3670,10 @@ Prefab:
     - target: {fileID: 1744266564166658, guid: e30e498388e0e5243821d5bfeb0b8040, type: 2}
       propertyPath: m_Name
       value: EndDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744266564166658, guid: e30e498388e0e5243821d5bfeb0b8040, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e30e498388e0e5243821d5bfeb0b8040, type: 2}

@@ -8,8 +8,11 @@ public class PlayerSkate : MonoBehaviour
     CharacterController2D controller;
     PlayerMovement playerMovement;
     Rigidbody2D rigidBody;
+    [System.NonSerialized]
     public bool on = false;
     float force;
+    bool jumpThrow = false;
+    bool goingRight = true;
 
     void Awake()
     {
@@ -39,19 +42,45 @@ public class PlayerSkate : MonoBehaviour
         {
             Skate();
         }
-        else if (on && bodyHandler.equipped != EquippedType.Skate)
-        {
-            DeSkate();
-        }
-
-        if (on)
+        else if (on)
         {
             playerMovement.horizontalVelocity += force;
-            if (Input.GetButtonDown("Jump") && !controller.m_Grounded) 
+
+            if (bodyHandler.equipped != EquippedType.Skate && !jumpThrow)
             {
-                rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0);
                 bodyHandler.UnEquip();
+                DeSkate();
             }
+            else if (Input.GetButtonDown("Interact") || Input.GetButtonDown("Pickup"))
+            {
+                bodyHandler.Equip(bodyHandler.body, EquippedType.Hold);
+                DeSkate();
+            }
+            else if (Input.GetButtonDown("Throw"))
+            {
+                bodyHandler.UnEquip();
+                playerMovement.disableHorizontalInput = false;
+                jumpThrow = true;
+                goingRight = controller.m_FacingRight;
+            }
+            else if (Input.GetButtonDown("Jump") && !controller.m_Grounded)
+            {
+                //rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0);
+                //bodyHandler.UnEquip();
+                bodyHandler.body.GetComponent<DeadBodyCollision>().IgnoreCollision(transform.Find("Colliders"));
+                bodyHandler.UnEquip();
+                jumpThrow = true;
+                playerMovement.disableHorizontalInput = false;
+                goingRight = controller.m_FacingRight;
+            }
+        }
+
+        if (jumpThrow && (controller.m_Grounded ||
+            (Input.GetAxisRaw("Horizontal") < 0 && goingRight) ||
+            (Input.GetAxisRaw("Horizontal") > 0 && !goingRight)))
+        {
+            on = false;
+            jumpThrow = false;
         }
     }
 }

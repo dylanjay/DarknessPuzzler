@@ -7,6 +7,7 @@ public class ConveyorBelt : MonoBehaviour
     public float speed;
     List<Transform> moveObjects = new List<Transform>();
     CharacterController2D controller;
+    bool playerGoingRight;
 
     //void OnTriggerStay2D(Collider2D collision)
     //{
@@ -20,13 +21,14 @@ public class ConveyorBelt : MonoBehaviour
     {
         if (controller != null)
         {
-            if (controller.m_Grounded)
+            if (controller.m_Grounded || 
+                (Input.GetAxisRaw("Horizontal") < 0 && goingRight) ||
+                (Input.GetAxisRaw("Horizontal") > 0 && !goingRight))
             {
                 controller = null;
             }
             else
             {
-                Debug.Log("CONVEYOR BELT WORKED");
                 controller.GetComponent<PlayerMovement>().horizontalVelocity += speed * (goingRight ? 1 : -1);
             }
         }
@@ -46,11 +48,9 @@ public class ConveyorBelt : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" )//&& !collision.gameObject.GetComponent<CharacterController2D>().m_Grounded)
+        if (collision.gameObject.tag == "Player" )//&& !collision.gameObject.GetComponentInParent<CharacterController2D>().m_Grounded)
         {
-            //if (collision.gameObject.GetComponent<CharacterController2D>().m_Grounded)
-            //Debug.Log(collision.gameObject.GetComponent<CharacterController2D>().groundedOn);
-            controller = collision.gameObject.GetComponent<CharacterController2D>();
+            controller = collision.gameObject.GetComponentInParent<CharacterController2D>();
         }
     }
 

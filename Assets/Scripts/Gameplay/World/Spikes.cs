@@ -5,11 +5,11 @@ public class Spikes : MonoBehaviour
 {
     private bool spikesRevealed = false;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.GetComponent<PlayerKiller>().Kill();
+            collision.GetComponentInParent<PlayerKiller>().Kill();
         }
         // All objects that can currently hit spikes can bleed.
         if (!spikesRevealed)
