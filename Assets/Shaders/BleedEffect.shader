@@ -2,16 +2,17 @@
 {
 	Properties
 	{
-		_MainTex ("Texture", 2D) = "white" {}
-        _BleedTex("Bleed Texture", 2D) = "white" {}
-        _MainColor ("Default Color", Color) = (0,0,0,0)
-        _RevealColor ("Reveal Color", Color) = (1,1,1,1)
+		_MainTex("Texture", 2D) = "white" {}
+        _RevealTex("Reveal Texture", 2D) = "white" {}
+        _MainColor("Default Color", Color) = (0,0,0,0)
+        _RevealColor("Reveal Color", Color) = (1,1,1,1)
+        _RevealAmount("Reveal Amount", Range(0, 1)) = 0
 	}
 
 	SubShader
 	{
 		Tags
-		{ 
+		{
 			"Queue"="Transparent" 
 			"IgnoreProjector"="True" 
 			"RenderType"="Transparent" 
@@ -49,10 +50,12 @@
 			};
 
 			sampler2D _MainTex;
-			sampler2D _BleedTex;
+			sampler2D _RevealTex;
+			float4 _RevealTex_ST;
 			float4 _MainTex_ST;
 			fixed4 _MainColor;
 			fixed4 _RevealColor;
+            float _RevealAmount;
 			
 			v2f vert (appdata v)
 			{
@@ -67,13 +70,14 @@
 			{
 				// sample the texture
 				float alpha = tex2D(_MainTex, i.uv).a;
-                float bleedAlpha = tex2D(_BleedTex, i.uv).a;// .5 + sin(_Time.r * 6.28*60) / 2.0;//
-                fixed3 rgb = _MainColor * (1 - bleedAlpha) + _RevealColor * bleedAlpha;
-				// apply fog
-				UNITY_APPLY_FOG(i.fogCoord, col);
-                fixed4 col = fixed4(rgb, alpha);
-                col.rgb *= col.a;
-				return col;
+                fixed3 rgb = _MainColor;
+
+                fixed4 reveal = tex2D(_RevealTex, i.uv * _RevealTex_ST.xy + _RevealTex_ST.zw);
+                if (reveal.r < 1 - _RevealAmount)
+                {
+                    return fixed4(_MainColor.rgb * alpha, alpha);
+                }
+                return fixed4(_RevealColor.rgb * alpha, alpha);
 			}
 			ENDCG
 		}
