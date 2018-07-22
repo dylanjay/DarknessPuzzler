@@ -27,7 +27,7 @@ public class PlayerShoot : MonoBehaviour
     }
 
     void FixedUpdate () {
-		if ((bodyHandler.equipped == EquippedType.Hold || bodyHandler.equipped == EquippedType.Skate) && Input.GetButtonDown("Throw"))
+		if ((bodyHandler.equipped == EquippedType.Hold || bodyHandler.equipped == EquippedType.Skate) && Input.GetButtonDown("Throw") && !ThrowObstructed())
         {
             body = bodyHandler.body;
             if (bodyHandler.equipped != EquippedType.Skate || controller.m_Grounded)
@@ -45,4 +45,9 @@ public class PlayerShoot : MonoBehaviour
             body.GetComponent<Rigidbody2D>().AddForce(dir.normalized*force, ForceMode2D.Impulse);
         }
 	}    
+
+    bool ThrowObstructed()
+    {
+        return Physics2D.OverlapBox(bodyHandler.body.position, bodyHandler.body.GetComponent<BoxCollider2D>().size, 0f, LayerMask.GetMask("Environment"));
+    }
 }

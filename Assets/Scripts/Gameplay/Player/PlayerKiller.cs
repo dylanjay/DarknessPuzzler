@@ -5,6 +5,7 @@ public class PlayerKiller : MonoBehaviour
 {
     PlayerRespawner respawner;
     DeadBodyManager deadbodyManager;
+    GravityFlip gravityFlip;
 
     void Awake()
     {
@@ -14,6 +15,7 @@ public class PlayerKiller : MonoBehaviour
     void Start()
     {
         deadbodyManager = DeadBodyManager.instance;
+        gravityFlip = GravityFlip.instance;
     }
 
     public void Kill()
@@ -21,6 +23,10 @@ public class PlayerKiller : MonoBehaviour
         GetComponent<BodyHandler>().UnEquip();
         GetComponent<PlayerSkate>().DeSkate();
         deadbodyManager.CreateBody(transform);
+        if (gravityFlip.flipped)
+        {
+            gravityFlip.Flip();
+        }
         Camera.main.GetComponent<CameraShake>().shakeCamera(1);
         StartCoroutine(RespawnRoutine());
     }

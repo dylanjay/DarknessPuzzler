@@ -24,13 +24,19 @@ public class PlayerMovement : MonoBehaviour
         gravityFlip = GravityFlip.instance;
     }
 
-    void Update()
+    [System.Diagnostics.Conditional("UNITY_EDITOR")]
+    void DebugGravityFlip()
     {
-        horizontalVelocity = disableHorizontalInput ? 0f : Input.GetAxisRaw("Horizontal") * runSpeed;
         if (Input.GetButtonDown("Flip") && controller.m_Grounded)
         {
             gravityFlip.Flip();
         }
+    }
+
+    void Update()
+    {
+        horizontalVelocity = disableHorizontalInput ? 0f : Input.GetAxisRaw("Horizontal") * runSpeed;
+        DebugGravityFlip();
         if (Input.GetButtonDown("Jump") && (controller.m_Grounded || bodyHandler.equipped == EquippedType.Skate))
         {
             jump = true;

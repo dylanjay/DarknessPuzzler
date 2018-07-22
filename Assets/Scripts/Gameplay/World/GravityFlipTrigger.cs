@@ -26,7 +26,7 @@ public class GravityFlipTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (active && collision.gameObject.tag == "Player")
+        if (active && (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Pickupable"))
         {
             player = collision.transform;
             active = false;
