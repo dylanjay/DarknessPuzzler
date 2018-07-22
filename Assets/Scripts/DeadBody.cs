@@ -25,7 +25,7 @@ public class DeadBody : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Environment")
+        if (collision.gameObject.layer != LayerMask.NameToLayer("Player"))
         {
             Vector2 center = GetCollisionCenter(collision);
             Vector2 normal = collision.contacts[0].normal;

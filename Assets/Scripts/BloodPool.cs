@@ -57,6 +57,7 @@ public class BloodPool : MonoBehaviour
         bool groundExists = hit2D.collider != null;
         hit2D = Physics2D.Raycast(position, transform.rotation * Vector3.right * Mathf.Sign(growthDistance), 
                                             Mathf.Abs(growthDistance), LayerMask.GetMask("Default"));
+        Debug.DrawLine(position, position + transform.rotation * Vector3.right * Mathf.Sign(growthDistance));
         if (!groundExists)
         {
             // Debug.LogFormat("Here {0}", index);
