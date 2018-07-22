@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 50148159455044066}
   - component: {fileID: 212233096453786124}
   - component: {fileID: 114410122614609810}
+  - component: {fileID: 114166791641363722}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -166,7 +167,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1962205916800342}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.91, y: -0.16, z: 0.016348}
+  m_LocalPosition: {x: -6.91, y: 3.31, z: 0.016348}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4249638301993842}
@@ -186,7 +187,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1764409590658112}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.01, y: 1.99, z: 0.07267183}
+  m_LocalPosition: {x: -0.23, y: -0.45, z: 0.07267183}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4123199633464130}
@@ -375,6 +376,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdingPivot: {fileID: 0}
   skatingPivot: {fileID: 0}
+--- !u!114 &114166791641363722
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962205916800342}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e7e5cb1ae546ce43aa118f8fbc8f041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodStreakPrefab: {fileID: 1409326723191406, guid: b2d090a32e0c57e4c8a2ee24ffb5e2e5,
+    type: 2}
 --- !u!114 &114168989130114494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -400,7 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64d9f92d2f9d7de4aa697845285b595e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 45
+  speed: 50
 --- !u!114 &114569133225377088
 MonoBehaviour:
   m_ObjectHideFlags: 1

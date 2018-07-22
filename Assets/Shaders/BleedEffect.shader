@@ -81,7 +81,7 @@
                 fixed4 reveal = tex2D(_RevealTex, i.uv * _RevealTex_ST.xy + _RevealTex_ST.zw);
                 if (reveal.r < 1 - _RevealAmount)
                 {
-                    return fixed4(_MainColor.rgb * alpha, alpha);
+                    return fixed4(_MainColor.rgb * alpha, _MainColor.a * alpha);
                 }
                 return fixed4(_RevealColor.rgb * alpha, alpha);
 			}

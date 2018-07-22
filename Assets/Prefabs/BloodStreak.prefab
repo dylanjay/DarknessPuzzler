@@ -9,91 +9,57 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1737364241925310}
+  m_RootGameObject: {fileID: 1409326723191406}
   m_IsPrefabParent: 1
---- !u!1 &1737364241925310
+--- !u!1 &1409326723191406
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4050823459051184}
-  - component: {fileID: 114938738112721910}
+  - component: {fileID: 4930274341208636}
+  - component: {fileID: 120011226723621776}
+  - component: {fileID: 114335159781704220}
   m_Layer: 0
-  m_Name: BloodPool
+  m_Name: BloodStreak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1911021001996350
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4367379754546816}
-  - component: {fileID: 120089110477677354}
-  m_Layer: 0
-  m_Name: LineRenderer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4050823459051184
+--- !u!4 &4930274341208636
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1737364241925310}
+  m_GameObject: {fileID: 1409326723191406}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.715296, y: 0.14892203, z: -0.028320312}
+  m_LocalPosition: {x: -3.098393, y: 7.9199533, z: -0.028320312}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4367379754546816}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4367379754546816
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1911021001996350}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.039, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4050823459051184}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114938738112721910
+--- !u!114 &114335159781704220
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1737364241925310}
+  m_GameObject: {fileID: 1409326723191406}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d186756c307d524ea407ebfe3034e7e, type: 3}
+  m_Script: {fileID: 11500000, guid: 907e7fc3b4221004cb94e065a8aa9fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bias: 0.5
-  amount: 3
-  keepAliveTime: 30
-  growthFactor: 0.005
-  lineRenderer: {fileID: 120089110477677354}
-  bloodDropsPrefab: {fileID: 1231490428494000, guid: c074ef386ce8c944980647b501bc3e55,
-    type: 2}
---- !u!120 &120089110477677354
+  keepAliveTime: 10
+  lineRenderer: {fileID: 120011226723621776}
+--- !u!120 &120011226723621776
 LineRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1911021001996350}
+  m_GameObject: {fileID: 1409326723191406}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1

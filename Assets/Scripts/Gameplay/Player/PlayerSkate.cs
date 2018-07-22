@@ -14,12 +14,15 @@ public class PlayerSkate : MonoBehaviour
     bool jumpThrow = false;
     bool goingRight = true;
 
+    BloodStreakManager bloodStreakManager;
+
     void Awake()
     {
         bodyHandler = GetComponent<BodyHandler>();
         controller = GetComponent<CharacterController2D>();
         playerMovement = GetComponent<PlayerMovement>();
         rigidBody = GetComponent<Rigidbody2D>();
+        bloodStreakManager = GetComponent<BloodStreakManager>();
     }
 
     public void Skate()
@@ -28,12 +31,14 @@ public class PlayerSkate : MonoBehaviour
         force = controller.m_FacingRight ? speed : -speed;
         on = true;
         playerMovement.disableHorizontalInput = true;
+        bloodStreakManager.enabled = true;
     }
 
     public void DeSkate()
     {
         on = false;
         playerMovement.disableHorizontalInput = false;
+        bloodStreakManager.enabled = false;
     }
 
     void Update()

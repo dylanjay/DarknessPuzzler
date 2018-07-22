@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BloodPool : MonoBehaviour
 {
-
     [Tooltip("How much the blood should flow one way or the other. Useful for inclines and initial velocity.")]
     [Range(0, 1)]
     public float bias = 0.5f;
@@ -12,17 +11,23 @@ public class BloodPool : MonoBehaviour
     [Tooltip("The total distance the blood should cover.")]
     public float amount = 3;
 
+    public float keepAliveTime = 10f;
+    private float startTime = 0f;
+
     private float amountUsed = 0;
 
     [Tooltip("How fast the blood should flow.")]
     public float growthFactor = .1f;
 
     public LineRenderer lineRenderer;
-
+    private GameObject[] bloodDrippers = new GameObject[2];
 
     public GameObject bloodDropsPrefab;
-    
-    private GameObject[] bloodDrippers = new GameObject[2];
+
+    private void Start()
+    {
+        startTime = Time.time;
+    }
 
     // Update is called once per frame
     void Update()
@@ -30,6 +35,14 @@ public class BloodPool : MonoBehaviour
         if (amount - amountUsed > 0)
         {
             UpdateBlood();
+        }
+        else
+        {
+            if (Time.time > startTime + keepAliveTime)
+            {
+                startTime = float.PositiveInfinity;
+                StartCoroutine(Dissipate());
+            }
         }
     }
 
@@ -39,8 +52,7 @@ public class BloodPool : MonoBehaviour
         Vector3 leftGrowth = Grow(0, -bias * diff);
         Vector3 rightGrowth = Grow(1, (1.0f - bias) * diff);
         amountUsed += diff;
-
-
+        
         lineRenderer.SetPosition(0, lineRenderer.GetPosition(0) + leftGrowth);
         lineRenderer.SetPosition(1, lineRenderer.GetPosition(1) + rightGrowth);
         if (amount - amountUsed < .001)
@@ -96,6 +108,25 @@ public class BloodPool : MonoBehaviour
         ParticleSystem dripper = bloodDrippers[index].GetComponentInChildren<ParticleSystem>();
         ParticleSystem.EmissionModule emission = dripper.emission;
         emission.rateOverTime = Mathf.Abs(growth) * 1000;
+    }
 
+    private IEnumerator Dissipate()
+    {
+        Material material = lineRenderer.material;
+        float revealAmount = 1.0f;
+        while (revealAmount > 0)
+        {
+            revealAmount -= Time.deltaTime;
+            material.SetFloat("_RevealAmount", revealAmount);
+            yield return null;
+        }
+        material.SetFloat("_RevealAmount", 0);
+
+        yield return null;
+        for (int i = 0; i < bloodDrippers.Length; i++)
+        {
+            Destroy(bloodDrippers[i]);
+        }
+        Destroy(gameObject);
     }
 }

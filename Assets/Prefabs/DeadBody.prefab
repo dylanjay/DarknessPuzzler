@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bloodPoolPrefab: {fileID: 1737364241925310, guid: b02193160960cdb4092f5ff4a1f2df5f,
     type: 2}
-  bloodSpotPrefab: {fileID: 1198980903873828, guid: b275e5d6444940d409f007b3129f4138,
+  bloodStreakPrefab: {fileID: 1409326723191406, guid: b2d090a32e0c57e4c8a2ee24ffb5e2e5,
     type: 2}
   minDistance: 2
 --- !u!114 &114872378875402444

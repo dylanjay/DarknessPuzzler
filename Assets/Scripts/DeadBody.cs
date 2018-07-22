@@ -2,12 +2,9 @@
 
 public class DeadBody : MonoBehaviour
 {
-    private SpriteRenderer spriteRenderer;
     public GameObject bloodPoolPrefab;
-    public GameObject bloodSpotPrefab;
+    private SpriteRenderer spriteRenderer;
     private Vector3 lastPoolPosition = Vector3.positiveInfinity;
-    private Vector3 lastSpotPosition = Vector3.positiveInfinity;
-    private float lastSpotTime = 0;
 
     [Tooltip("Minimum distance needed to travel before making more blood.")]
     public float minDistance = 2;
@@ -34,11 +31,6 @@ public class DeadBody : MonoBehaviour
                 lastPoolPosition = center;
                 CreateBloodPool(center, normal, collision.relativeVelocity.magnitude);
             }
-            else
-            {
-                lastSpotTime = Time.time;
-                CreateBloodSpot(center);
-            }
         }
     }
 
@@ -54,21 +46,6 @@ public class DeadBody : MonoBehaviour
         return center / length;
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (lastSpotTime == Time.time) { return; }
-        if (collision.gameObject.layer != LayerMask.NameToLayer("Player"))
-        {
-            Vector2 center = GetCollisionCenter(collision);
-            if (Vector2.Distance(lastSpotPosition, center) > minDistance / 50)
-            {
-                lastSpotTime = Time.time;
-                lastSpotPosition = center;
-                CreateBloodSpot(center);
-            }
-        }
-    }
-
     private void CreateBloodPool(Vector2 position, Vector2 normal, float force)
     {
         GameObject poolGo = Instantiate(bloodPoolPrefab, 
@@ -79,10 +56,5 @@ public class DeadBody : MonoBehaviour
         Vector2 velocity = GetComponent<Rigidbody2D>().velocity;
         bloodPool.bias = Mathf.Clamp(velocity.x * -.05f, -.5f, .5f) + .5f;
         bloodPool.amount = Mathf.Sqrt(force);
-    }
-
-    private void CreateBloodSpot(Vector2 position)
-    {
-        //GameObject poolGo = Instantiate(bloodSpotPrefab, position, Quaternion.identity);
     }
 }
