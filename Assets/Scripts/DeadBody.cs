@@ -10,7 +10,7 @@ public class DeadBody : MonoBehaviour
     private float lastSpotTime = 0;
 
     [Tooltip("Minimum distance needed to travel before making more blood.")]
-    public float minDistance = 5;
+    public float minDistance = 2;
     
     void Start()
     {

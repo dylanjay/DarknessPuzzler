@@ -104,7 +104,7 @@ MonoBehaviour:
     type: 2}
   bloodSpotPrefab: {fileID: 1198980903873828, guid: b275e5d6444940d409f007b3129f4138,
     type: 2}
-  minDistance: 5
+  minDistance: 2
 --- !u!114 &114872378875402444
 MonoBehaviour:
   m_ObjectHideFlags: 1
