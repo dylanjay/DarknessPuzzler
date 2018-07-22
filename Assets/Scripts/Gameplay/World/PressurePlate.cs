@@ -4,12 +4,22 @@ using UnityEngine.Events;
 public class PressurePlate : MonoBehaviour 
 {
     public UnityEvent onPress;
+    public UnityEvent onRelease;
 
-    void OnTriggerEnter2D(Collider2D collision)
+    int enterCount = 0;
+
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.tag == "Player")
+        enterCount++;
+        onPress.Invoke();
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        enterCount--;
+        if (enterCount == 0)
         {
-            onPress.Invoke();
+            onRelease.Invoke();
         }
     }
 }

@@ -19,7 +19,7 @@ public class CameraShake : MonoBehaviour {
 
         _basePos = transform.localPosition;
         _baseRot = transform.localEulerAngles;
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {

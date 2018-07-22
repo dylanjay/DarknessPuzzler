@@ -55,7 +55,8 @@ public class BloodPool : MonoBehaviour
         RaycastHit2D hit2D = Physics2D.Raycast(position, Vector3.down, .1f, LayerMask.GetMask("Default"));
         Debug.DrawLine(position, position + Vector3.down * .1f);
         bool groundExists = hit2D.collider != null;
-        hit2D = Physics2D.Raycast(position, Vector3.right, growthDistance, LayerMask.GetMask("Default"));
+        hit2D = Physics2D.Raycast(position, Vector3.right * Mathf.Sign(growthDistance), 
+                                            Mathf.Abs(growthDistance), LayerMask.GetMask("Default"));
         if (!groundExists)
         {
             // Debug.LogFormat("Here {0}", index);
@@ -69,7 +70,7 @@ public class BloodPool : MonoBehaviour
         if (hit2D.collider != null)
         {
             // Debug.LogFormat("There {0}", index);
-            return hit2D.distance * Vector3.right;
+            return Vector3.zero;
         }
         // Debug.LogFormat("ADSF {0}", index);
         return Vector3.right * growthDistance;
