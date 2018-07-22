@@ -539,7 +539,11 @@ Tilemap:
       m_TileColorIndex: 17
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
+<<<<<<< Updated upstream
       m_ColliderType: 2
+=======
+      m_ColliderType: 1
+>>>>>>> Stashed changes
   - first: {x: -4, y: 1, z: 0}
     second:
       m_TileIndex: 32
@@ -614,6 +618,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 7cedf1af41ffe83409f801374ef73bb0, type: 2}
   - m_RefCount: 1
+<<<<<<< Updated upstream
     m_Data: {fileID: 11400000, guid: ca40ac36fd0e39e4f95d9dce43f2dbfb, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 0bb415e383840ac46bd645ff3ddd490c, type: 2}
@@ -633,6 +638,11 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 1e4be52b4c7dd614786d4dd301722128, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 592c647ce2a35e74b9f6cf736c761e45, type: 2}
+=======
+    m_Data: {fileID: 11400000, guid: 3b8eceb8eab41ec41a95949f4ae58199, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 0bb415e383840ac46bd645ff3ddd490c, type: 2}
+>>>>>>> Stashed changes
   m_TileSpriteArray:
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 4e083aec557ea3e46a53dff3b1fcf52f, type: 3}
@@ -703,6 +713,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 21300332, guid: 0fd641d2105e7eb4aa70e11a56967280, type: 3}
   - m_RefCount: 1
+<<<<<<< Updated upstream
     m_Data: {fileID: 21300054, guid: 0fd641d2105e7eb4aa70e11a56967280, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 9e7b4cf94c702a143b265ed46fa1bf9a, type: 3}
@@ -714,6 +725,13 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: e04fb2d8cdffb0c4d9d5234268a37093, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 45
+=======
+    m_Data: {fileID: 21300000, guid: 3a9c214e7a3fd534db078e0c81905594, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: aaae6b2455031d14a8a00a933e137fee, type: 3}
+  m_TileMatrixArray:
+  - m_RefCount: 33
+>>>>>>> Stashed changes
     m_Data:
       e00: 1
       e01: 0
@@ -765,8 +783,13 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
   - m_RefCount: 0
+<<<<<<< Updated upstream
     m_Data: {r: -1.087312e-19, g: -1.087312e-19, b: -1.087312e-19, a: -1.087312e-19}
   - m_RefCount: 45
+=======
+    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+  - m_RefCount: 33
+>>>>>>> Stashed changes
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
