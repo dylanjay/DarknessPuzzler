@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198082269549278666}
   - component: {fileID: 199966647830587148}
   m_Layer: 0
-  m_Name: BloodDrops
+  m_Name: BloodFountain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

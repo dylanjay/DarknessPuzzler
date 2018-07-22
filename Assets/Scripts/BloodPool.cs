@@ -51,11 +51,11 @@ public class BloodPool : MonoBehaviour
 
     public Vector3 Grow(int index, float growthDistance)
     {
-        Vector3 position = lineRenderer.GetPosition(index) + transform.position;
-        RaycastHit2D hit2D = Physics2D.Raycast(position, Vector3.down, .1f, LayerMask.GetMask("Default"));
-        Debug.DrawLine(position, position + Vector3.down * .1f);
+        Vector3 position = transform.rotation * lineRenderer.GetPosition(index) + transform.position;
+        RaycastHit2D hit2D = Physics2D.Raycast(position, transform.rotation * Vector3.down, .1f, LayerMask.GetMask("Default"));
+        Debug.DrawLine(position, position + transform.rotation * Vector3.down * .1f);
         bool groundExists = hit2D.collider != null;
-        hit2D = Physics2D.Raycast(position, Vector3.right * Mathf.Sign(growthDistance), 
+        hit2D = Physics2D.Raycast(position, transform.rotation * Vector3.right * Mathf.Sign(growthDistance), 
                                             Mathf.Abs(growthDistance), LayerMask.GetMask("Default"));
         if (!groundExists)
         {
@@ -73,15 +73,15 @@ public class BloodPool : MonoBehaviour
             return Vector3.zero;
         }
         // Debug.LogFormat("ADSF {0}", index);
-        return Vector3.right * growthDistance;
+        return transform.rotation * Vector3.right * growthDistance;
     }
 
     public void CreateBloodDrops(int index, Vector3 worldspaceLocation, float growthDistance)
     {
         GameObject go = Instantiate(bloodDropsPrefab,
-                                    lineRenderer.GetPosition(index) + lineRenderer.transform.position
-                                    + (index == 1 ? Vector3.right : Vector3.left) * .0625f,
-                                    Quaternion.LookRotation(-Physics.gravity), null);
+                                    transform.rotation * lineRenderer.GetPosition(index) + lineRenderer.transform.position
+                                    + transform.rotation * (index == 1 ? Vector3.right : Vector3.left) * .0625f,
+                                    Quaternion.identity, transform);
         bloodDrippers[index] = go;
     }
 

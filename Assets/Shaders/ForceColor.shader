@@ -1,12 +1,10 @@
-﻿Shader "Unlit/BleedEffect"
+﻿Shader "Unlit/ForceColor"
 {
 	Properties
 	{
 		_MainTex("Texture", 2D) = "white" {}
-        _RevealTex("Reveal Texture", 2D) = "white" {}
-        _MainColor("Default Color", Color) = (0,0,0,0)
-        _RevealColor("Reveal Color", Color) = (1,1,1,1)
-        _RevealAmount("Reveal Amount", Range(0, 1)) = 0
+        _Color("Color", Color) = (1,1,1,1)
+        _AlphaThreshhold("Alpha Threshhold", float) = 1
 		[MaterialToggle] PixelSnap ("Pixel snap", Float) = 0
 	}
 
@@ -52,11 +50,9 @@
 			};
 
 			sampler2D _MainTex;
-			sampler2D _RevealTex;
-			float4 _RevealTex_ST;
 			float4 _MainTex_ST;
-			fixed4 _MainColor;
-			fixed4 _RevealColor;
+			fixed3 _Color;
+            fixed _AlphaThreshhold;
             float _RevealAmount;
 			
 			v2f vert (appdata v)
@@ -75,15 +71,10 @@
 			fixed4 frag (v2f i) : SV_Target
 			{
 				// sample the texture
-				float alpha = tex2D(_MainTex, i.uv).a;
-                fixed3 rgb = _MainColor;
+				float alpha = tex2D(_MainTex, i.uv * _MainTex_ST.xy + _MainTex_ST.wz).a;
 
-                fixed4 reveal = tex2D(_RevealTex, i.uv * _RevealTex_ST.xy + _RevealTex_ST.zw);
-                if (reveal.r < 1 - _RevealAmount)
-                {
-                    return fixed4(_MainColor.rgb * alpha, alpha);
-                }
-                return fixed4(_RevealColor.rgb * alpha, alpha);
+                clip(alpha - _AlphaThreshhold);
+                return fixed4(_Color, 1.0);
 			}
 			ENDCG
 		}

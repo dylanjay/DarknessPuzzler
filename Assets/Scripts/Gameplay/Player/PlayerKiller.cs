@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerKiller : MonoBehaviour 
 {
     PlayerRespawner respawner;
-    DeadbodyManager deadbodyManager;
+    DeadBodyManager deadbodyManager;
 
     void Awake()
     {
@@ -13,7 +13,7 @@ public class PlayerKiller : MonoBehaviour
 
     void Start()
     {
-        deadbodyManager = DeadbodyManager.instance;
+        deadbodyManager = DeadBodyManager.instance;
     }
 
     public void Kill()

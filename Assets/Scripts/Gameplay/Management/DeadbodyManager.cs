@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class DeadbodyManager : MonoBehaviour 
+public class DeadBodyManager : MonoBehaviour 
 {
     public GameObject deadbodyPrefab;
-    public static DeadbodyManager instance;
+    public static DeadBodyManager instance;
     [System.NonSerialized]
     public Transform deadbody;
 
