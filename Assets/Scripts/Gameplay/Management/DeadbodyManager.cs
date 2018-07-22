@@ -34,7 +34,7 @@ public class DeadbodyManager : MonoBehaviour
     public void DestroyBody(GameObject obj)
     {
         obj.transform.position = new Vector3(-10000, -10000);
-        StartCoroutine(KillAfterFrame(obj);
+        StartCoroutine(KillAfterFrame(obj));
     }
 
     IEnumerator KillAfterFrame(GameObject obj)
