@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class DeadbodyManager : MonoBehaviour 
 {
@@ -16,7 +17,7 @@ public class DeadbodyManager : MonoBehaviour
     {
         if (deadbody != null)
         {
-            Destroy(deadbody.gameObject);
+            DestroyBody(deadbody.gameObject);
         }
 
         deadbody = Instantiate(deadbodyPrefab, reference.position, reference.rotation).transform;
@@ -28,5 +29,17 @@ public class DeadbodyManager : MonoBehaviour
 
         Destroy(deadbody.gameObject);
         deadbody = null;
+    }
+
+    public void DestroyBody(GameObject obj)
+    {
+        obj.transform.position = new Vector3(-10000, -10000);
+        StartCoroutine(KillAfterFrame(obj));
+    }
+
+    IEnumerator KillAfterFrame(GameObject obj)
+    {
+        yield return null;
+        Destroy(obj);
     }
 }
