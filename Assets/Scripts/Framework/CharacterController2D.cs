@@ -5,7 +5,7 @@ public class CharacterController2D : MonoBehaviour
 {
     SpriteRenderer sprite;
     BodyHandler bodyHandler;
-    [SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
+    public float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
     [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;          // Amount of maxSpeed applied to crouching movement. 1 = 100%
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;  // How much to smooth out the movement
     [SerializeField] private bool m_AirControl = false;                         // Whether or not a player can steer while jumping;
@@ -14,6 +14,7 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
     [SerializeField] private Collider2D m_CrouchDisableCollider;                // A collider that will be disabled when crouching
 
+    public Transform groundedOn;
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
     public bool m_Grounded;            // Whether or not the player is grounded.
     const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
@@ -54,7 +55,7 @@ public class CharacterController2D : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
         for (int i = 0; i < colliders.Length; i++)
         {
-            if (bodyHandler.equipped == EquippedType.Skate && colliders[i].gameObject.layer == LayerMask.NameToLayer("DeadBody"))
+            if (colliders[i].gameObject.layer == LayerMask.NameToLayer("DeadBody"))
                 continue;
 
             if (colliders[i].gameObject != gameObject)
@@ -62,6 +63,7 @@ public class CharacterController2D : MonoBehaviour
                 m_Grounded = true;
                 if (!wasGrounded)
                 {
+                    groundedOn = colliders[i].transform;
                     landedOn = colliders[i];
                     OnLandEvent.Invoke();
                 }
@@ -134,7 +136,7 @@ public class CharacterController2D : MonoBehaviour
             }
         }
         // If the player should jump...
-        if (m_Grounded && jump)
+        if (jump)
         {
             // Add a vertical force to the player.
             m_Grounded = false;

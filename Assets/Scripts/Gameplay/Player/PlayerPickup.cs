@@ -15,7 +15,7 @@ public class PlayerPickup : MonoBehaviour
         {
             if (Input.GetButtonDown("Pickup"))
             {
-                bodyHandler.Equip(collision.transform, bodyHandler.holdingPivot, EquippedType.Hold);
+                bodyHandler.Equip(collision.transform, EquippedType.Hold);
             }
         }
     }

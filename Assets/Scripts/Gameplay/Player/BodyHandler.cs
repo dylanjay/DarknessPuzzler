@@ -49,30 +49,46 @@ public class BodyHandler : MonoBehaviour
         holdingPivot.localPosition = new Vector3(-holdingPivot.localPosition.x, holdingPivot.localPosition.y, holdingPivot.localPosition.z);
     }
 
-    public void Equip(Transform body, Transform pivot, EquippedType type)
+    public void Equip(Transform body, EquippedType type)
     {
+        Debug.Log("equip");
         if (equipped != EquippedType.None)
         {
             UnEquip();
+            Debug.Log("here");
         }
         //body.GetComponent<BoxCollider2D>().enabled = false;
         equipped = type;
         this.body = body;
-        body.position = pivot.position;
-        body.SetParent(pivot);
-        body.GetComponent<Rigidbody2D>().isKinematic = true;
-        Physics2D.IgnoreCollision(GetComponent<CircleCollider2D>(), body.GetComponent<BoxCollider2D>());
-        Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), body.GetComponent<BoxCollider2D>());
+        switch (type)
+        {
+            case EquippedType.Hold:
+                body.position = holdingPivot.position;
+                body.SetParent(holdingPivot);
+                break;
+            case EquippedType.Skate:
+                body.position = skatingPivot.position;
+                body.SetParent(skatingPivot);
+                break;
+        }
+
+        body.GetComponent<Rigidbody2D>().simulated = false;
+        //body.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+        //Physics2D.IgnoreCollision(GetComponent<CircleCollider2D>(), body.GetComponent<BoxCollider2D>());
+        //Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), body.GetComponent<BoxCollider2D>());
     }
 
     public void UnEquip()
     {
+        if (equipped == EquippedType.None) return;
+
         //body.GetComponent<BoxCollider2D>().enabled = true;
-        Physics2D.IgnoreCollision(GetComponent<CircleCollider2D>(), body.GetComponent<BoxCollider2D>(), false);
-        Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), body.GetComponent<BoxCollider2D>(), false);
+        //Physics2D.IgnoreCollision(GetComponent<CircleCollider2D>(), body.GetComponent<BoxCollider2D>(), false);
+        //Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), body.GetComponent<BoxCollider2D>(), false);
         equipped = EquippedType.None;
         body.SetParent(transform.parent);
-        body.GetComponent<Rigidbody2D>().isKinematic = false;
+        body.GetComponent<Rigidbody2D>().simulated = true;
+        //body.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         body = null;
     }
 }

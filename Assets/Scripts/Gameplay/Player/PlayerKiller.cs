@@ -18,6 +18,8 @@ public class PlayerKiller : MonoBehaviour
 
     public void Kill()
     {
+        GetComponent<BodyHandler>().UnEquip();
+        GetComponent<PlayerSkate>().DeSkate();
         deadbodyManager.CreateBody(transform);
         Camera.main.GetComponent<CameraShake>().shakeCamera(1);
         StartCoroutine(RespawnRoutine());

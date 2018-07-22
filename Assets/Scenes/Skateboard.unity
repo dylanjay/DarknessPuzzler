@@ -281,6 +281,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114764442605315740, guid: 0953b4fd099484d45a194279db5808d1,
+        type: 2}
+      propertyPath: m_JumpForce
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 50148159455044066, guid: 0953b4fd099484d45a194279db5808d1,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0953b4fd099484d45a194279db5808d1, type: 2}
   m_IsPrefabParent: 0
@@ -3715,7 +3725,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1847877286257720, guid: 90390cbd35c97624d9984acfcaa6429f, type: 2}
       propertyPath: m_Name
-      value: LevelLoader
+      value: DontDestroyOnLoad
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90390cbd35c97624d9984acfcaa6429f, type: 2}
