@@ -11,9 +11,9 @@ public class PlayerPickup : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetButtonDown("Fire1") && collision.gameObject.tag == "Pickupable")
+        if (collision.gameObject.tag == "Pickupable" && collision.gameObject.layer == LayerMask.NameToLayer("DeadBody"))
         {
-            if (collision.gameObject.layer == LayerMask.NameToLayer("DeadBody"))
+            if (Input.GetButtonDown("Pickup"))
             {
                 bodyHandler.Equip(collision.transform, bodyHandler.holdingPivot, EquippedType.Hold);
             }

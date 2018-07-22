@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontalVelocity = disableHorizontalInput ? 0f : Input.GetAxisRaw("Horizontal") * runSpeed;
-        if (Input.GetButtonDown("Fire3") && controller.m_Grounded)
+        if (Input.GetButtonDown("Flip") && controller.m_Grounded)
         {
             gravityFlip.Flip();
         }

@@ -24,7 +24,7 @@ public class BodyHandler : MonoBehaviour
     void Start()
     {
         GravityFlip.instance.onFlip.AddListener(Flip);
-        controller.OnLandEvent.AddListener(TrySkate);
+        //controller.OnLandEvent.AddListener(TrySkate);
     }
 
     void Update()
@@ -36,13 +36,13 @@ public class BodyHandler : MonoBehaviour
         }
     }
 
-    void TrySkate()
-    {
-        if (controller.landedOn.gameObject.layer == LayerMask.NameToLayer("DeadBody"))
-        {
-            Equip(controller.landedOn.transform, skatingPivot, EquippedType.Skate);
-        }
-    }
+    //void TrySkate()
+    //{
+    //    if (controller.landedOn.gameObject.layer == LayerMask.NameToLayer("DeadBody"))
+    //    {
+    //        Equip(controller.landedOn.transform, skatingPivot, EquippedType.Skate);
+    //    }
+    //}
 
     void Flip()
     {
@@ -51,6 +51,10 @@ public class BodyHandler : MonoBehaviour
 
     public void Equip(Transform body, Transform pivot, EquippedType type)
     {
+        if (equipped != EquippedType.None)
+        {
+            UnEquip();
+        }
         //body.GetComponent<BoxCollider2D>().enabled = false;
         equipped = type;
         this.body = body;

@@ -19,8 +19,9 @@ public class PlayerSkate : MonoBehaviour
 
     void Update()
     {
-        if (!on && bodyHandler.equipped == EquippedType.Skate)
+        if (bodyHandler.equipped == EquippedType.Hold && Input.GetButtonDown("Interact"))
         {
+            bodyHandler.Equip(bodyHandler.body, bodyHandler.skatingPivot, EquippedType.Skate);
             force = controller.m_FacingRight ? speed : -speed;
             on = true;
             playerMovement.disableHorizontalInput = true;

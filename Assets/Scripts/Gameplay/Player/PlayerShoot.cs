@@ -14,9 +14,10 @@ public class PlayerShoot : MonoBehaviour
         controller = GetComponent<CharacterController2D>();
 
         Debug.Log("CONTROLS");
-        Debug.Log("Mouse 1: Pick up body");
-        Debug.Log("Mouse 2: Throw body");
-        Debug.Log("Mouse 3: Reverse gravity");
+        Debug.Log("J: Pick up body");
+        Debug.Log("I: Throw body");
+        Debug.Log("K: Reverse gravity");
+        Debug.Log("L: Interact (skate on body(while holding) / death button)");
     }
 
     void Start()
@@ -25,7 +26,7 @@ public class PlayerShoot : MonoBehaviour
     }
 
     void FixedUpdate () {
-		if (bodyHandler.equipped == EquippedType.Hold && Input.GetButtonDown("Fire2"))
+		if (bodyHandler.equipped == EquippedType.Hold && Input.GetButtonDown("Throw"))
         {
             Transform body = bodyHandler.body;
             bodyHandler.UnEquip();
