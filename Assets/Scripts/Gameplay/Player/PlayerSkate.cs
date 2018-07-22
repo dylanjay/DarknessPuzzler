@@ -77,6 +77,7 @@ public class PlayerSkate : MonoBehaviour
                 jumpThrow = true;
                 playerMovement.disableHorizontalInput = false;
                 goingRight = controller.m_FacingRight;
+                bloodStreakManager.enabled = false;
             }
         }
 

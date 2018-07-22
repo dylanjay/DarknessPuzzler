@@ -77,7 +77,6 @@ public class CameraShake : MonoBehaviour {
 
         Vector3 update = new Vector3(newX, newY, _basePos.z);
         _basePos = update;
-        Debug.Log(offset);
         transform.position = update + offset;
     }
 
