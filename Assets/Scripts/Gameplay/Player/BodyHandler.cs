@@ -51,11 +51,9 @@ public class BodyHandler : MonoBehaviour
 
     public void Equip(Transform body, EquippedType type)
     {
-        Debug.Log("equip");
         if (equipped != EquippedType.None)
         {
             UnEquip();
-            Debug.Log("here");
         }
         //body.GetComponent<BoxCollider2D>().enabled = false;
         equipped = type;

@@ -31,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
         {
             gravityFlip.Flip();
         }
-
         if (Input.GetButtonDown("Jump") && (controller.m_Grounded || bodyHandler.equipped == EquippedType.Skate))
         {
             jump = true;
