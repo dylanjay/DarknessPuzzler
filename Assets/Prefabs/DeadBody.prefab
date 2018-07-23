@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 212233096453786124}
   - component: {fileID: 114144739711679540}
   - component: {fileID: 114872378875402444}
+  - component: {fileID: 114073115095124912}
   m_Layer: 10
   m_Name: DeadBody
   m_TagString: Pickupable
@@ -89,6 +90,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.44495583, y: 0.55353713}
   m_EdgeRadius: 0
+--- !u!114 &114073115095124912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962205916800342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e7e5cb1ae546ce43aa118f8fbc8f041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodStreakPrefab: {fileID: 1409326723191406, guid: b2d090a32e0c57e4c8a2ee24ffb5e2e5,
+    type: 2}
 --- !u!114 &114144739711679540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,8 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloodPoolPrefab: {fileID: 1737364241925310, guid: b02193160960cdb4092f5ff4a1f2df5f,
-    type: 2}
-  bloodStreakPrefab: {fileID: 1409326723191406, guid: b2d090a32e0c57e4c8a2ee24ffb5e2e5,
     type: 2}
   minDistance: 2
 --- !u!114 &114872378875402444

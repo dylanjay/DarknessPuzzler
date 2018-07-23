@@ -22,7 +22,8 @@ public class BloodStreak : MonoBehaviour
     {
         if (Time.time - startDissipateTime >= keepAliveTime)
         {
-            Dissipate();
+            StartCoroutine(Dissipate());
+            startDissipateTime = float.PositiveInfinity;
         }
     }
 
