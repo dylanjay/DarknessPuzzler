@@ -6,9 +6,12 @@ public class PlayerKiller : MonoBehaviour
     PlayerRespawner respawner;
     DeadBodyManager deadbodyManager;
     GravityFlip gravityFlip;
+    SoundManager soundManager;
+    AudioSource audioSource;
 
     void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         respawner = GetComponent<PlayerRespawner>();
     }
 
@@ -16,10 +19,13 @@ public class PlayerKiller : MonoBehaviour
     {
         deadbodyManager = DeadBodyManager.instance;
         gravityFlip = GravityFlip.instance;
+        soundManager = SoundManager.instance;
     }
 
     public void Kill()
     {
+        audioSource.pitch = Random.Range(1f, 1.2f);
+        soundManager.PlayOneShot(audioSource, "death");
         GetComponent<BodyHandler>().UnEquip();
         GetComponent<PlayerSkate>().DeSkate();
         deadbodyManager.CreateBody(transform);

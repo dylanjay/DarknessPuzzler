@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     CharacterController2D controller;
     GravityFlip gravityFlip;
     BodyHandler bodyHandler;
+    AudioSource audioSource;
+    SoundManager soundManager;
 
     public float horizontalVelocity = 0f;
     public bool disableHorizontalInput = false;
@@ -17,10 +19,12 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController2D>();
         bodyHandler = GetComponent<BodyHandler>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Start()
     {
+        soundManager = SoundManager.instance;
         gravityFlip = GravityFlip.instance;
     }
 
@@ -40,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && (controller.m_Grounded || bodyHandler.equipped == EquippedType.Skate))
         {
             jump = true;
+            audioSource.pitch = Random.Range(1f, 1.2f);
+            soundManager.PlayOneShot(audioSource, "jump");
             if (!controller.m_Grounded && bodyHandler.equipped == EquippedType.Skate)
             {
                 doubleJump = true;
