@@ -48,13 +48,18 @@ public class DeadBody : MonoBehaviour
 
     private void CreateBloodPool(Vector2 position, Vector2 normal, float force)
     {
+        Debug.DrawLine(position, position + normal, Color.green, 100);
         GameObject poolGo = Instantiate(bloodPoolPrefab, 
-                                        position + (normal * .05f), 
+                                        position + (normal * .1f), 
                                         Quaternion.LookRotation(Vector3.forward, normal));
 
         BloodPool bloodPool = poolGo.GetComponent<BloodPool>();
         Vector2 velocity = GetComponent<Rigidbody2D>().velocity;
-        bloodPool.bias = Mathf.Clamp(velocity.x * -.05f, -.5f, .5f) + .5f;
         bloodPool.amount = Mathf.Sqrt(force);
+        if (Mathf.Abs(normal.x) > .9f)
+        {
+            Debug.Log("It's vertical");
+            bloodPool.bias = Mathf.Sign(Physics2D.gravity.y * normal.x) > 0 ? 1 : 0;
+        }
     }
 }
