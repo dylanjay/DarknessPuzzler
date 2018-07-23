@@ -12,7 +12,7 @@ public class Blitter : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Semicolon))
         {
-            RenderTexture rTex = new RenderTexture(64, 64, 24);
+            RenderTexture rTex = new RenderTexture(256, 256, 24);
             Texture2D dest = new Texture2D(source.width, source.height, TextureFormat.ARGB32, false);
 
             Graphics.Blit(source, rTex, mat);

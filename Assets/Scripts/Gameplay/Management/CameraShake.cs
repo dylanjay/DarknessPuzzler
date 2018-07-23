@@ -49,7 +49,7 @@ public class CameraShake : MonoBehaviour {
         if (trauma > 0 && shaking)
         {
             offset = getShakeTranslation();
-            trauma -= 0.01f;
+            trauma -= Time.deltaTime;
         }
         else if (trauma > 0 && !shaking)
         {

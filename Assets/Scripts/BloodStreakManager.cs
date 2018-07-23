@@ -23,6 +23,14 @@ public class BloodStreakManager : MonoBehaviour
         if (!enabled) { return; }
         if (collision.gameObject.layer != LayerMask.NameToLayer("Player"))
         {
+            CharacterController2D player = GetComponent<CharacterController2D>();
+            if (player != null)
+            {
+                if (collision.otherCollider.GetType() != typeof(CircleCollider2D))
+                {
+                    return;
+                }
+            }
             CreateBloodStreak(GetCollisionCenter(collision));
         }
     }

@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class GravityFlipTrigger : MonoBehaviour
 {
-    public float reactivateDistance;
-
+    public float reactivateDistance = 2;
+    public UnityEvent onFlipPressed;
     GravityFlip gravityFlip;
     bool active = true;
     Transform player;
@@ -31,6 +32,7 @@ public class GravityFlipTrigger : MonoBehaviour
             player = collision.transform;
             active = false;
             gravityFlip.Flip();
+            onFlipPressed.Invoke();
         }
     }
 }

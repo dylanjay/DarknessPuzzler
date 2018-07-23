@@ -59,7 +59,7 @@
 			{
 				v2f o;
                 #ifdef PIXELSNAP_ON
-				OUT.vertex = UnityPixelSnap(v.vertex);
+				o.vertex = UnityPixelSnap(UnityObjectToClipPos(v.vertex));
 				#else
 				o.vertex = UnityObjectToClipPos(v.vertex);
                 #endif

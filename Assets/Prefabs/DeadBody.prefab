@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 212233096453786124}
   - component: {fileID: 114144739711679540}
   - component: {fileID: 114872378875402444}
+  - component: {fileID: 114073115095124912}
   m_Layer: 10
   m_Name: DeadBody
   m_TagString: Pickupable
@@ -80,7 +81,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.45, y: 0.47}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.45, y: 0.52}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -89,6 +90,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.44495583, y: 0.55353713}
   m_EdgeRadius: 0
+--- !u!114 &114073115095124912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962205916800342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e7e5cb1ae546ce43aa118f8fbc8f041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodStreakPrefab: {fileID: 1409326723191406, guid: b2d090a32e0c57e4c8a2ee24ffb5e2e5,
+    type: 2}
 --- !u!114 &114144739711679540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,8 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloodPoolPrefab: {fileID: 1737364241925310, guid: b02193160960cdb4092f5ff4a1f2df5f,
-    type: 2}
-  bloodStreakPrefab: {fileID: 1409326723191406, guid: b2d090a32e0c57e4c8a2ee24ffb5e2e5,
     type: 2}
   minDistance: 2
 --- !u!114 &114872378875402444
@@ -137,7 +149,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 49c59a67c5f43e34d9a7f80e3dbcf2fb, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -157,7 +169,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: faad3a0fb651c2c4788c110039038106, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8d0c8b429e249c34aa71466ddca3f2ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

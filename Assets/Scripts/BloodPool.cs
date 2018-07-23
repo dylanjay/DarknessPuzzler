@@ -70,14 +70,17 @@ public class BloodPool : MonoBehaviour
         hit2D = Physics2D.Raycast(position, transform.rotation * Vector3.right * Mathf.Sign(growthDistance), 
                                             Mathf.Abs(growthDistance), LayerMask.GetMask("Default"));
         Debug.DrawLine(position, position + transform.rotation * Vector3.right * Mathf.Sign(growthDistance));
-        if (!groundExists && Mathf.Approximately(Mathf.Abs(transform.up.x), 0))
+        if (!groundExists)
         {
             // Debug.LogFormat("Here {0}", index);
-            if (bloodDrippers[index] == null)
+            if (Mathf.Approximately(Mathf.Abs(transform.up.x), 0))
             {
-                CreateBloodDrops(index, position, growthDistance);
+                if (bloodDrippers[index] == null)
+                {
+                    CreateBloodDrops(index, position, growthDistance);
+                }
+                SetDripSpeed(index, growthDistance);
             }
-            SetDripSpeed(index, growthDistance);
             return Vector2.zero;
         }
         if (hit2D.collider != null)
