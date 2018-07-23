@@ -31,7 +31,7 @@ public class Spikes : MonoBehaviour
         float revealAmount = 0;
         while (revealAmount < .999f)
         {
-            revealAmount += (1 - revealAmount) * .02f;
+            revealAmount += Time.deltaTime / 2.0f;
             material.SetFloat("_RevealAmount", revealAmount);
             yield return null;
         }

@@ -70,6 +70,7 @@ public class CharacterController2D : MonoBehaviour
                 }
             }
         }
+        UpdateLookDirection();
     }
 
 
@@ -150,11 +151,15 @@ public class CharacterController2D : MonoBehaviour
     {
         // Switch the way the player is labelled as facing.
         m_FacingRight = !m_FacingRight;
-
-        sprite.flipX = m_FacingRight;
+        UpdateLookDirection();
         //// Multiply the player's x local scale by -1.
         //Vector3 theScale = transform.localScale;
         //theScale.x *= -1;
         //transform.localScale = theScale;
+    }
+
+    public void UpdateLookDirection()
+    {
+        sprite.flipX = m_FacingRight ^ Physics2D.gravity.y < 0;
     }
 }

@@ -9,7 +9,7 @@ public class BloodStreak : MonoBehaviour
     [Tooltip("The amount of time between the last time the body has been kicked and when the blood fades.")]
     public float keepAliveTime = 10;
 
-    private const float MAX_OFF_DISTANCE = 0.1f;
+    private const float MAX_OFF_DISTANCE = 0.2f;
     public LineRenderer lineRenderer;
     private float startDissipateTime = float.PositiveInfinity;
 
@@ -44,11 +44,17 @@ public class BloodStreak : MonoBehaviour
             {
                 int closestPoint = startPosition.x > endPosition.x ? 0 : 1;
                 lineRenderer.SetPosition(closestPoint, localSpacePoint);
+                Vector3 otherPoint = lineRenderer.GetPosition(1 - closestPoint);
+                otherPoint.y = localSpacePoint.y;
+                lineRenderer.SetPosition(1 - closestPoint, otherPoint);
             }
             else if (localSpacePoint.x < lineRenderer.GetPosition(0).x && localSpacePoint.x < lineRenderer.GetPosition(1).x)
             {
                 int closestPoint = startPosition.x > localSpacePoint.x ? 0 : 1;
                 lineRenderer.SetPosition(closestPoint, localSpacePoint);
+                Vector3 otherPoint = lineRenderer.GetPosition(1 - closestPoint);
+                otherPoint.y = localSpacePoint.y;
+                lineRenderer.SetPosition(1 - closestPoint, otherPoint);
             }
         }
     }
