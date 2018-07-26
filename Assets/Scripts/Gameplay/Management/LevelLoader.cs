@@ -34,7 +34,7 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        if (curLevel < numLevels)
+        if (curLevel < numLevels - 1)
         {
             curLevel++;
         }
