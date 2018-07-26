@@ -17,8 +17,8 @@ public class PlayerShoot : MonoBehaviour
         Debug.Log("CONTROLS");
         Debug.Log("J: Pick up body");
         Debug.Log("I: Throw body");
-        Debug.Log("K: Reverse gravity");
-        Debug.Log("L: Interact (skate on body(while holding) / death button)");
+        Debug.Log("K: Death button");
+        Debug.Log("L: Skate on body while holding");
     }
 
     void Start()

@@ -175,7 +175,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &423680054
 Transform:
   m_ObjectHideFlags: 0
@@ -183,7 +183,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 423680053}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 4.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 227769144}
@@ -228,7 +228,7 @@ TilemapRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 734678f84705f874989bebb3cb9d3eaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -277,12 +277,12 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 4263257eaa3c91047b63873d7275e74d, type: 2}
+    m_Data: {fileID: 11400000, guid: 79ce894d93bfcc342a2e428fd324c494, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 1
-    m_Data: {fileID: 21300502, guid: 0fd641d2105e7eb4aa70e11a56967280, type: 3}
+    m_Data: {fileID: 21300012, guid: 3e4484e80ce125d4aa423973269e495d, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 1
     m_Data:
@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 594985180}
   - component: {fileID: 594985182}
   - component: {fileID: 594985181}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3832,7 +3832,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4259792317971584, guid: e30e498388e0e5243821d5bfeb0b8040, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.61
+      value: -0.84
       objectReference: {fileID: 0}
     - target: {fileID: 4259792317971584, guid: e30e498388e0e5243821d5bfeb0b8040, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3963,7 +3963,7 @@ TilemapRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 734678f84705f874989bebb3cb9d3eaf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4120,12 +4120,12 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 13
-    m_Data: {fileID: 11400000, guid: 29b2d14c8fd0ad34a972b8717362929b, type: 2}
+    m_Data: {fileID: 11400000, guid: f500d89452e87cf4682ffcf442b42688, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 13
-    m_Data: {fileID: 21300080, guid: 0fd641d2105e7eb4aa70e11a56967280, type: 3}
+    m_Data: {fileID: 21300004, guid: 3e4484e80ce125d4aa423973269e495d, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 13
     m_Data:
@@ -4270,7 +4270,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1264270389
 Transform:
   m_ObjectHideFlags: 0
@@ -4278,7 +4278,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1264270388}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 227769144}

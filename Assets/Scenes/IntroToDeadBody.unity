@@ -386,6 +386,26 @@ Prefab:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 4547824132453688, guid: 06abb166c83898f46b7bf711ab4cb6b3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -8.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 4547824132453688, guid: 06abb166c83898f46b7bf711ab4cb6b3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 4403660825155442, guid: 06abb166c83898f46b7bf711ab4cb6b3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 8.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 4403660825155442, guid: 06abb166c83898f46b7bf711ab4cb6b3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4403660825155442, guid: 06abb166c83898f46b7bf711ab4cb6b3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06abb166c83898f46b7bf711ab4cb6b3, type: 2}
   m_IsPrefabParent: 0
@@ -402,7 +422,7 @@ GameObject:
   - component: {fileID: 806072986}
   - component: {fileID: 806072985}
   - component: {fileID: 806072984}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3686,7 +3706,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4259792317971584, guid: e30e498388e0e5243821d5bfeb0b8040, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.17
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4259792317971584, guid: e30e498388e0e5243821d5bfeb0b8040, type: 2}
       propertyPath: m_LocalPosition.z

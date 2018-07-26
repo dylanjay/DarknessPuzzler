@@ -16,8 +16,8 @@ public class DeadBody : MonoBehaviour
     
     void Update()
     {
-        spriteRenderer.flipY = Physics2D.gravity.y < 0;
-        transform.rotation = Quaternion.identity;
+        //spriteRenderer.flipY = Physics2D.gravity.y < 0;
+        //transform.rotation = Quaternion.identity;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

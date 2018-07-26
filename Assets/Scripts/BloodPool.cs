@@ -64,11 +64,11 @@ public class BloodPool : MonoBehaviour
     public Vector3 Grow(int index, float growthDistance)
     {
         Vector3 position = transform.rotation * lineRenderer.GetPosition(index) + transform.position;
-        RaycastHit2D hit2D = Physics2D.Raycast(position, transform.rotation * Vector3.down, .1f, LayerMask.GetMask("Default"));
+        RaycastHit2D hit2D = Physics2D.Raycast(position, transform.rotation * Vector3.down, .1f, LayerMask.GetMask("Default") | LayerMask.GetMask("Environment"));
         Debug.DrawLine(position, position + transform.rotation * Vector3.down * .1f);
         bool groundExists = hit2D.collider != null;
         hit2D = Physics2D.Raycast(position, transform.rotation * Vector3.right * Mathf.Sign(growthDistance), 
-                                            Mathf.Abs(growthDistance), LayerMask.GetMask("Default"));
+                                            Mathf.Abs(growthDistance), LayerMask.GetMask("Default") | LayerMask.GetMask("Environment"));
         Debug.DrawLine(position, position + transform.rotation * Vector3.right * Mathf.Sign(growthDistance));
         if (!groundExists)
         {

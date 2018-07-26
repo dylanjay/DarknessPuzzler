@@ -6,11 +6,11 @@ public class EndDoor : MonoBehaviour
     {
          if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("PRETEND THAT LOADED THE NEXT LEVEL");
+            //Debug.Log("PRETEND THAT LOADED THE NEXT LEVEL");
 
-            collision.gameObject.GetComponentInParent<PlayerRespawner>().Respawn();
+            //collision.gameObject.GetComponentInParent<PlayerRespawner>().Respawn();
             // TODO
-            //LevelLoader.instance.LoadNextLevel();
+            LevelLoader.instance.LoadNextLevel();
         }
     }
 }

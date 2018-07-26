@@ -4,13 +4,17 @@ public class CameraShake : MonoBehaviour {
 
     public float maxAngle = 5;
     public float maxOffset = 1;
+    [Range(0, 1)]
+    public float followTightness = 0.5f;
+    public Transform topLeftMark;
+    public Transform botRightMark;
 
     //initial values
     bool shaking;
     Vector3 _basePos;
     Vector3 _baseRot;
-    float height;
-    float width;
+    float halfHeight;
+    float halfWidth;
     
     float trauma = 0;
 
@@ -29,8 +33,8 @@ public class CameraShake : MonoBehaviour {
         Random.InitState( (int)System.DateTime.Now.Ticks );
         _basePos = transform.position;
         _baseRot = transform.eulerAngles;
-        height = 2f * Camera.main.orthographicSize;
-        width = height * Camera.main.aspect;
+        halfHeight = Camera.main.orthographicSize;
+        halfWidth = halfHeight * Camera.main.aspect;
     }
 
     void Update()
@@ -62,18 +66,23 @@ public class CameraShake : MonoBehaviour {
             shaking = false;
             resetCameraPosition();
         }
-
-        float incrX = (target.transform.position.x - _basePos.x) * .50f * Time.deltaTime;
-        float incrY = (target.transform.position.y - _basePos.y) * .50f * Time.deltaTime;
+        
+        float incrX = (target.transform.position.x - _basePos.x) * followTightness;
+        float incrY = (target.transform.position.y - _basePos.y) * followTightness;
 
         float newX = _basePos.x + incrX;
         float newY = _basePos.y + incrY;
 
-        newX = newX - width / 2 < topLeft.x ? _basePos.x : newX;
-        newX = newX + width / 2 > bottomRight.x ? _basePos.x : newX;
+        newX = Mathf.Clamp(newX, topLeft.x + halfWidth, bottomRight.x - halfWidth);
+        newX = Mathf.Clamp(newX, topLeft.x + halfWidth, bottomRight.x - halfWidth);
 
-        newY = newY - height / 2 < topLeft.y ? _basePos.y : newY;
-        newY = newY + height / 2 > bottomRight.y ? _basePos.y : newY;
+        newY = Mathf.Clamp(newY, bottomRight.y + halfHeight, topLeft.y - halfHeight);
+        newY = Mathf.Clamp(newY, bottomRight.y + halfHeight, topLeft.y - halfHeight);
+        //newX = newX - width / 2 < topLeft.x ? _basePos.x : newX;
+        //newX = newX + width / 2 > bottomRight.x ? _basePos.x : newX;
+
+        //newY = newY - height / 2 < topLeft.y ? _basePos.y : newY;
+        //newY = newY + height / 2 > bottomRight.y ? _basePos.y : newY;
 
         Vector3 update = new Vector3(newX, newY, _basePos.z);
         _basePos = update;
@@ -157,11 +166,19 @@ public class CameraShake : MonoBehaviour {
 
     void defineCorners()
     {
-        center = env.GetComponent<CompositeCollider2D>().bounds.center;
-        extents = env.GetComponent<CompositeCollider2D>().bounds.extents;
+        if (topLeftMark != null && botRightMark != null)
+        {
+            topLeft = topLeftMark.position;
+            bottomRight = botRightMark.position;
+        }
+        else
+        {
+            center = env.GetComponent<CompositeCollider2D>().bounds.center;
+            extents = env.GetComponent<CompositeCollider2D>().bounds.extents;
 
-        topLeft = center - extents;
-        bottomRight = center + extents;
+            topLeft = center - extents;
+            bottomRight = center + extents;
+        }
     }
 
     void defineTarget()

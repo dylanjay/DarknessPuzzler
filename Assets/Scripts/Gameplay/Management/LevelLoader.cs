@@ -15,7 +15,7 @@ public class LevelLoader : MonoBehaviour
 
     void Start()
     {
-        numLevels = SceneManager.sceneCount;
+        numLevels = SceneManager.sceneCountInBuildSettings;
     }
 
     [System.NonSerialized]
@@ -35,9 +35,14 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        if (curLevel >= numLevels - 1)
-
-        curLevel++;
+        if (curLevel < numLevels)
+        {
+            curLevel++;
+        }
+        else
+        {
+            curLevel = 0;
+        }
         SceneManager.LoadScene(curLevel);
     }
 }

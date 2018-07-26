@@ -31,10 +31,10 @@ public class PlayerMovement : MonoBehaviour
     [System.Diagnostics.Conditional("UNITY_EDITOR")]
     void DebugGravityFlip()
     {
-        if (Input.GetButtonDown("Flip") && controller.m_Grounded)
-        {
-            gravityFlip.Flip();
-        }
+        //if (Input.GetButtonDown("Flip") && controller.m_Grounded)
+        //{
+        //    gravityFlip.Flip();
+        //}
     }
 
     void Update()
@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         {
             jump = true;
             audioSource.pitch = Random.Range(1f, 1.2f);
-            soundManager.PlayOneShot(audioSource, "jump");
+            soundManager.PlayOneShot(audioSource, "Jump");
             if (!controller.m_Grounded && bodyHandler.equipped == EquippedType.Skate)
             {
                 doubleJump = true;

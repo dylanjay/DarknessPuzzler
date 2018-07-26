@@ -13,6 +13,11 @@ public class DeadBodyManager : MonoBehaviour
         instance = this;
     }
 
+    public GameObject SpawnDeadBody(Vector3 position)
+    {
+        return Instantiate(deadbodyPrefab, position, Quaternion.identity);
+    }
+
     public void CreateBody(Transform reference)
     {
         if (deadbody != null)

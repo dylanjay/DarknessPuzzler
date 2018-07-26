@@ -114,6 +114,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4123199633464130}
+  - component: {fileID: 114929175184772224}
   - component: {fileID: 114764442605315740}
   - component: {fileID: 114168989130114494}
   - component: {fileID: 114839016837967840}
@@ -375,7 +376,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9f140652a4026d54d97b0f952cd585cc, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -591,6 +592,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a7e0d427040b547b156a69948fc1e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onRespawn:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   spawnPoint: {fileID: 4249638301993842}
 --- !u!114 &114853199236446108
 MonoBehaviour:
@@ -601,6 +607,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c97ea9c91b7073f42b9a17835bedf517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114929175184772224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962205916800342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b112ba3426e0ca84db70b291883cb1ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212233096453786124

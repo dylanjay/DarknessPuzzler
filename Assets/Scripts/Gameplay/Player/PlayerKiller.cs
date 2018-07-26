@@ -8,6 +8,7 @@ public class PlayerKiller : MonoBehaviour
     GravityFlip gravityFlip;
     SoundManager soundManager;
     AudioSource audioSource;
+    bool killable = true;
 
     void Awake()
     {
@@ -24,8 +25,10 @@ public class PlayerKiller : MonoBehaviour
 
     public void Kill()
     {
+        if (!killable) return;
+
         audioSource.pitch = Random.Range(1f, 1.2f);
-        soundManager.PlayOneShot(audioSource, "death");
+        soundManager.PlayOneShot(audioSource, "Death");
         GetComponent<BodyHandler>().UnEquip();
         GetComponent<PlayerSkate>().DeSkate();
         deadbodyManager.CreateBody(transform);
@@ -39,8 +42,10 @@ public class PlayerKiller : MonoBehaviour
 
     IEnumerator RespawnRoutine()
     {
+        killable = false;
         yield return new WaitForEndOfFrame();
         respawner.Respawn();
+        killable = true;
     }
 
 }

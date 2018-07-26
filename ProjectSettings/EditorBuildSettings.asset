@@ -15,12 +15,18 @@ EditorBuildSettings:
     path: Assets/Scenes/IntroToBodyBoarding.unity
     guid: a5e2187ebbdff7e45b5d039967f79f34
   - enabled: 1
+    path: Assets/Scenes/IntroToConveyerBelts.unity
+    guid: 34f3884c1c7afa3409627486dea80e90
+  - enabled: 1
     path: Assets/Scenes/IntroToFlipping.unity
     guid: 174cf469570dc0a44b8358407909221d
   - enabled: 1
-    path: Assets/Scenes/IntroLevelBlood.unity
+    path: Assets/Scenes/SkateDropBody.unity
     guid: 825eeab04b2349245bd881c19ac00b48
   - enabled: 1
-    path: Assets/Scenes/IntroToConveyerBelts.unity
-    guid: 34f3884c1c7afa3409627486dea80e90
+    path: Assets/Scenes/ThrowBody.unity
+    guid: 6f969f34d7e84fb429dcaeb0dc0c6507
+  - enabled: 1
+    path: Assets/Scenes/BodyBoarding.unity
+    guid: b2deb0d72ed5bd140b8b47c4b436d36b
   m_configObjects: {}
