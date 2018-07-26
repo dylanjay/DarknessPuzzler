@@ -18,7 +18,6 @@ public class LevelLoader : MonoBehaviour
         numLevels = SceneManager.sceneCountInBuildSettings;
     }
 
-    [System.NonSerialized]
     public int curLevel = 0;
 
     public void LoadLevel(int level)

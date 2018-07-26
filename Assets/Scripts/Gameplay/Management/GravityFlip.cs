@@ -15,6 +15,14 @@ public class GravityFlip : MonoBehaviour
         instance = this;
     }
 
+    void Start()
+    {
+        if (Physics2D.gravity.y > 0)
+        {
+            Physics2D.gravity = new Vector2(0, -Physics2D.gravity.y);
+        }
+    }
+
     public void Flip()
     {
         Physics2D.gravity = new Vector2(0, -Physics2D.gravity.y);
